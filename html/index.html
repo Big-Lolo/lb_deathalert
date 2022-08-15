@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <!-- @jQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- @vue -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> 
+        <!-- @font-awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />               
+
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">-->
+        <!-- @boostrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="scripting/jquery-ui.css" rel="stylesheet">
+    </head>
+    <body> 
+        <div id="app" v-if="OPENED">
+            <h3 id="heridos">Personas Heridas<i class="fas fa-heart"></i></h3>
+
+            <div id="container">
+                <div id="navbar">      
+                       <!-- <h3 id="heridos">Personas Heridas<i class="fas fa-heart"></i></h3>-->
+            
+                    </div>
+                
+                <div id="page">
+                    <div id="alerta" v-for="users in USERTABLES">
+                        <p><i class="fas fa-circle" v-bind:style="{ color: users.color}"></i> ID: #{{users.id}} - {{users.tipo}}</p>
+                        <div id="blocker">
+
+                           <div id="peperoni"> <progress id="deathbar" :value=users.percent max="100"> </progress>
+                            <p id="quantity">{{users.percent}}%</p>  <i class="fas fa-location-dot" v-on:click="SendCoods(users.ubi, users.id)" ></i> </div> 
+                            <!--<button class="button-3" role="button" v-on:click="SendCoods(users.ubi, users.id)">Ubicación</button>-->
+                            
+                            
+                        </div>
+                        
+                    </div> 
+                </div>
+            </div>
+        </div>     
+        <script src="script.js"></script>
+    </body>
+</html>
